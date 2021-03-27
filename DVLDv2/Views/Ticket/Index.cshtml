@@ -1,0 +1,77 @@
+﻿@model IEnumerable<DVLD.Models.Tickets.TicketVM>
+
+@{
+    ViewData["Title"] = "Tickets";
+}
+
+<h1>Tickets</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IssueDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DriverFullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarModel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LicensePlate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfficerName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var ticket in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => ticket.IssueDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => ticket.DriverFullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => ticket.CarModel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => ticket.LicensePlate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => ticket.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => ticket.Reason)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => ticket.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => ticket.OfficerName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@ticket.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@ticket.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@ticket.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
